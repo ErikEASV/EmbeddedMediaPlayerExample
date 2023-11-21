@@ -1,6 +1,9 @@
 package com.example.embeddedmediaplayer;
 
 /* Rettet EK dec. 2023
+ * HUSK at media biblioteket skal importeres
+ * IntelliJ: File->Project structure->Modules->Dependencies->+->Library->from Maven->
+ * Udfyld med: "org.openjfx:javafx-media" og søg. Vælg den rigtige version.
  */
 
 import javafx.application.Application;
@@ -26,7 +29,7 @@ public class EmbeddedMediaPlayer extends Application {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Åben lydfil...");
         fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Audio Files", "*.wav", "*.mp3", "*.aac"),
+                new FileChooser.ExtensionFilter("Audio Files", "*.wav", "*.mp3", "*.aac", "*.mp4"),
                 new FileChooser.ExtensionFilter("All Files", "*.*"));
 
         File selectedFile = fileChooser.showOpenDialog(primaryStage);
@@ -37,6 +40,8 @@ public class EmbeddedMediaPlayer extends Application {
             "https://samplelib.com/lib/preview/mp3/sample-15s.mp3";
         //   "https://samplelib.com/lib/preview/mp3/sample-6s.mp3";
         //    "https://media.istockphoto.com/id/1249558755/video/corcovado-national-park-costa-rica.mp4?s=mp4-640x640-is&k=20&c=SeqFrvNEiF0K4DSsKEFPeYDP6cOYLJzYtvFuBvALLBU=";
+
+        System.out.println("Nu afspilles: " + media_url);
 
         // create media player
         Media media = new Media (media_url);
